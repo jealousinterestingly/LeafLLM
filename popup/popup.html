@@ -1,72 +1,16 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <script src="/scripts/jquery.js"></script>
-    <script src="/popup/jsoneditor.min.js"></script>
-    <script src="/popup/popup.js" type="module"></script>
-    <link rel="stylesheet" href="/popup/popup.css"/>
-    <link rel="stylesheet" href="/popup/jsoneditor.min.css"/>
+    <title>LeafLLM</title>
+    <link rel="stylesheet" href="popup.css">
 </head>
 <body>
-<h1 class="extension-title">LeafLLM: an AI-powered Overleaf</h1>
-<div id="controls" class="form-container">
-    <div class="control">
-        <div class="input" id="shortcut-Improve"><span>ALT</span><span>I</span></div>
-        <div class="effect">Improve selected text.</div>
-    </div>
-    <div class="control">
-        <div class="input" id="shortcut-Complete"><span>ALT</span><span>C</span></div>
-        <div class="effect">Complete selected text.</div>
-    </div>
-    <div class="control">
-        <div class="input" id="shortcut-Ask"><span>ALT</span><span>A</span></div>
-        <div class="effect">Ask GPT.</div>
-    </div>
-</div>
-<div id="settings-form" class="form-container">
-    <div class="settings-text">Settings</div>
-    <div class="settings-container">
-        <div class="settings-item">
-            <div class="settings-item-text">Text Improvement</div>
-            <label class="switch">
-                <input name="text-Improve" class="settings-item-checkbox" type="checkbox"/>
-                <span class="slider round"></span>
-            </label>
-        </div>
-        <div class="settings-item">
-            <div class="settings-item-text">Text Completion</div>
-            <label class="switch">
-                <input name="text-Complete" class="settings-item-checkbox" type="checkbox"/>
-                <span class="slider round"></span>
-            </label>
-        </div>
-        <div class="settings-item">
-            <div class="settings-item-text">Ask</div>
-            <label class="switch">
-                <input name="text-Ask" class="settings-item-checkbox" type="checkbox"/>
-                <span class="slider round"></span>
-            </label>
-        </div>
-    </div>
-</div>
-<div id="api-token-form" class="form-container">
-    <div class="api-token-text"><span>API Token is </span><span class="api-token-status">not set</span></div>
-    <input class="api-token-input" name="api-token" placeholder="OpenAI API Token" type="text"/>
-    <div class="message">To get an API key, go to <a href="https://platform.openai.com/account/api-keys">https://platform.openai.com/account/api-keys</a>
-    </div>
-    <div class="btn-container">
-        <button class="submit btn">Set API Token</button>
-        <button class="clear btn">Reset API Token</button>
-    </div>
-</div>
-<div id="message-box" class="message-box"></div>
-<div id="configuration-form" class="form-container">
-    <div class="settings-text">Advanced Configuration</div>
-    <!-- JSON Editor Container -->
-    <div id="json-editor" style="height: 300px;"></div>
-    <div class="btn-container">
-        <button class="submit btn" id="saveConfig">Save config</button>
-        <button class="clear btn" id="resetConfig">Reset config</button>
-    </div>
-</div>
+    <h1>LeafLLM Settings</h1>
+    <form id="settings-form">
+        <label for="api-key">API Key:</label>
+        <input type="text" id="api-key" name="apiKey" size="40">
+        <button type="submit">Save</button>
+    </form>
+    <script src="popup.js"></script>
 </body>
 </html>
