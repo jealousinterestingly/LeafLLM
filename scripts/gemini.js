@@ -32,9 +32,11 @@ const safetySettings = [
  * @returns The gemini-pro-vision model.
  */
 export async function getModel(apiKey) {
+    // UPDATED: Import from the local library file instead of a URL.
     const { GoogleGenerativeAI } = await import(
-        'https://esm.run/@google/generative-ai'
+        './lib/generative-ai.js'
     );
     const genAI = new GoogleGenerativeAI(apiKey);
     return genAI.getGenerativeModel({ model: 'gemini-pro' });
 }
+
