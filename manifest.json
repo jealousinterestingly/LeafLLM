@@ -1,46 +1,45 @@
 {
-  "action": {
-    "default_popup": "popup/popup.html",
-    "default_icon": "popup/LeafLLM.png"
-  },
-  "content_scripts": [
-    {
-      "js": ["scripts/jquery.js", "scripts/content.js"],
-      "matches": ["https://*.overleaf.com/project/*"]
-    }
-  ],
-  "description": "LLM-based tools for Overleaf",
-  "icons": {
-    "16": "popup/LeafLLM_16.png",
-    "48": "popup/LeafLLM_48.png",
-    "128": "popup/LeafLLM_128.png"
-  },
-  "commands": {
-    "Complete": {
-      "suggested_key": {
-        "default": "Alt+C"
-      },
-      "description": "Complete selected text"
+    "manifest_version": 2,
+    "name": "LeafLLM",
+    "version": "1.0",
+    "description": "A privacy-respecting LLM extension.",
+    "permissions": [
+        "activeTab",
+        "storage",
+        "contextMenus",
+        "scripting"
+    ],
+    "background": {
+        "scripts": [
+            "background.js"
+        ]
     },
-    "Improve": {
-      "suggested_key": {
-        "default": "Alt+I"
-      },
-      "description": "Improve selected text"
+    "browser_action": {
+        "default_popup": "popup/popup.html",
+        "default_icon": {
+            "16": "icons/leaf-16.png",
+            "48": "icons/leaf-48.png",
+            "128": "icons/leaf-128.png"
+        }
     },
-    "Ask": {
-      "suggested_key": {
-        "default": "Alt+A"
-      },
-      "description": "Use the selected text to ask GPT. It adds to the beginning of the selected text: 'In Latex, '"
+    "icons": {
+        "16": "icons/leaf-16.png",
+        "48": "icons/leaf-48.png",
+        "128": "icons/leaf-128.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "content-script.js"
+            ]
+        }
+    ],
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "leafllm@bthink.bgu.ac.il"
+        }
     }
-  },
-  "background": {
-    "service_worker": "scripts/service-worker.js"
-  },
-  "permissions": ["storage", "tabs"],
-  "manifest_version": 3,
-  "name": "LeafLLM",
-  "homepage_url": "https://github.com/achiyae/LeafLLM",
-  "version": "1.4.1"
 }
